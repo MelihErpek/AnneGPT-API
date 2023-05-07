@@ -79,7 +79,7 @@ app.post("/generate", async (req, res) => {
     // });
     // const generatedText = response.data.choices[0].message.content;
     // const generatedText = "selam";
-    res.send(userPrompt)
+    res.json(userPrompt)
 
 
 })
