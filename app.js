@@ -56,7 +56,7 @@ app.post("/Mail", async (req, res) => {
 
 })
 
-app.post("/generate", async (req, res) => {
+app.get("/generate", async (req, res) => {
     const userPrompt = req.body.text;
     console.log(userPrompt)
     const openai = new OpenAIApi(configuration);
