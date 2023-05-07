@@ -58,7 +58,7 @@ app.post("/Mail", async (req, res) => {
 
 app.post("/generate", async (req, res) => {
 const userPrompt = req.body.text;
-    console.log(userPrompt)
+    //console.log(userPrompt)
     // const openai = new OpenAIApi(configuration);
     // const prompt = "Bir anne olarak tavsiye ver. ";
 
@@ -79,7 +79,12 @@ const userPrompt = req.body.text;
     // });
     // const generatedText = response.data.choices[0].message.content;
     // const generatedText = "selam";
-    res.json(userPrompt)
+    //res.json(userPrompt)
+    const completion = await openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: userPrompt,
+  });
+  res.send(completion.data.choices[0].text);
 
 
 })
