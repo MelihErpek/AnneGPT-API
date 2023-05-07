@@ -57,29 +57,29 @@ app.post("/Mail", async (req, res) => {
 })
 
 app.post("/generate", async (req, res) => {
-    const userPrompt = req.body.text;
-    // console.log(userPrompt)
-    // const openai = new OpenAIApi(configuration);
-    // const prompt = "Bir anne olarak tavsiye ver. ";
+ const userPrompt = req.body.text;
+    console.log(userPrompt)
+    const openai = new OpenAIApi(configuration);
+    const prompt = "Bir anne olarak tavsiye ver. ";
 
-    // const response = await openai.createChatCompletion({
-    //     model: "gpt-4",
-    //     messages: [
-    //         {
-    //             role: "system",
-    //             content: prompt
-    //         },
-    //         {
-    //             role: "user",
-    //             content: userPrompt
-    //         }
-    //     ],
-    //     max_tokens:50
+    const response = await openai.createChatCompletion({
+        model: "gpt-4",
+        messages: [
+            {
+                role: "system",
+                content: prompt
+            },
+            {
+                role: "user",
+                content: userPrompt
+            }
+        ],
+        max_tokens:50
         
-    // });
-    // const generatedText = response.data.choices[0].message.content;
+    });
+    const generatedText = response.data.choices[0].message.content;
     // const generatedText = "selam";
-    res.json(userPrompt)
+    res.json(generatedText)
 
 
 })
