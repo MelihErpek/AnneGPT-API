@@ -7,6 +7,7 @@ import mongoose from "mongoose"
 import User from "./Models/User.js"
 
 const configuration = new Configuration({
+    organization: "org-VpA26bj6YIymOREvC44iVzp8",
     apiKey: process.env.OPENAI_API_KEY,
 });
 
